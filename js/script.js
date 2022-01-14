@@ -1,6 +1,17 @@
 let valorFinal = 0;
 let valorDeCuotas = 0;
 
+class Juego{
+    constructor(nombre, anioDeLanzamiento, genero, precio){
+        this.nombre = nombre;
+        this.anioDeLanzamiento = anioDeLanzamiento;
+        this.genero = genero;
+        this.precio = precio;
+    }
+}
+
+const juego1 = new Juego('FIFA 22', 2021, 'Deportes', 3000);
+
 function ingresarSubtotal(){
     let subtotal= parseInt(prompt('Ingrese el monto a pagar'));
     while(subtotal<1000){
