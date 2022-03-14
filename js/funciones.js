@@ -251,6 +251,3 @@ fetch('/JSON/juegos.json')
 
         });
     })
-    .catch(()=>{
-        console.log('Fallo');
-    })
