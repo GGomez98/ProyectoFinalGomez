@@ -1,0 +1,6 @@
+[
+    {"id":1, "nombre":"FIFA 22", "anioDeLanzamiento":2021, "genero":"Deportes", "precio":3000, "tieneDescuento":false, "empresa":"Electronic Arts","imagen":"Images/FIFA22.jpg"},
+    {"id":2, "nombre":"GTA V", "anioDeLanzamiento":2013, "genero":"Acción", "precio":1200, "tieneDescuento":true, "empresa":"Rockstar Games","imagen":"Images/GTAV.jpg"},
+    {"id":3, "nombre":"Red Dead Redemption II", "anioDeLanzamiento":2018, "genero":"Acción", "precio":5000, "tieneDescuento":false, "empresa":"Rockstar Games","imagen":"Images/RDR2.jpg"},
+    {"id":4, "nombre":"Watch Dogs", "anioDeLanzamiento":2014, "genero":"Acción", "precio":4500, "tieneDescuento":false, "empresa":"Ubisoft","imagen":"https://d3ugyf2ht6aenh.cloudfront.net/stores/082/436/products/watchdogs1-522d160934f06e06f416283801676508-640-0.jpg"}
+]

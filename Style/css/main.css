@@ -1,0 +1,33 @@
+#filtroForm {
+  background-color: #3a2cfd;
+  color: white;
+  display: flex;
+  padding: 1%;
+  flex-wrap: wrap; }
+  #filtroForm .text {
+    width: 4%;
+    margin: 0% 0.3%; }
+  #filtroForm select {
+    margin-left: 1%; }
+  #filtroForm label {
+    margin-left: 1%; }
+
+#juegos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  #juegos .juegoEnPantalla {
+    width: 400px;
+    margin: 1% 1%; }
+    #juegos .juegoEnPantalla .imagenJuego {
+      width: 100%; }
+
+#juegosEnElCarrito {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  #juegosEnElCarrito .juegoEnCarrito {
+    width: 400px;
+    margin: 1% 1%; }
+    #juegosEnElCarrito .juegoEnCarrito .imagenJuego {
+      width: 100%; }

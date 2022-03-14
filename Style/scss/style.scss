@@ -1,0 +1,43 @@
+#filtroForm{
+    background-color: rgb(58, 44, 253);
+    color: white;
+    display: flex;
+    padding: 1%;
+    flex-wrap: wrap;
+    .text{
+        width: 4%;
+        margin: 0% 0.3%;
+    }
+    select{
+        margin-left: 1%;
+    }
+    label{
+        margin-left: 1%;
+    }
+}
+
+#juegos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .juegoEnPantalla{
+        width: 400px;
+        margin: 1% 1%;
+        .imagenJuego{
+            width: 100%;
+        }
+    }
+}
+
+#juegosEnElCarrito{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .juegoEnCarrito{
+        width: 400px;
+        margin: 1% 1%;
+        .imagenJuego{
+            width: 100%;
+        }
+    }
+}
