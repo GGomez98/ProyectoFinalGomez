@@ -4,15 +4,19 @@
     display: flex;
     padding: 1%;
     flex-wrap: wrap;
-    .text{
-        width: 4%;
-        margin: 0% 0.3%;
-    }
-    select{
-        margin-left: 1%;
-    }
-    label{
-        margin-left: 1%;
+    justify-content: space-between;
+    #filtro-div{
+        width: 96%;
+        .text{
+            width: 4%;
+            margin: 0% 0.3%;
+        }
+        select{
+            margin-left: 1%;
+        }
+        label{
+            margin-left: 1%;
+        }
     }
 }
 
@@ -33,11 +37,44 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    .juegoEnCarrito{
-        width: 400px;
+    .card{
+        display: grid;
+        width: 100%;
         margin: 1% 1%;
+        grid: "imagen titulo"
+              "imagen parrafo1"
+              "imagen parrafo2"
+              "imagen parrafo3"
+              "imagen parrafo4"
+              "imagen parrafo5";
         .imagenJuego{
+            grid-area: imagen;
             width: 100%;
+            height: 100%;
+        }
+        h2{
+            grid-area: titulo;
+            width: 100%;
+            font-size: 30px;
+        }
+        p{
+            width: 100%;
+            font-size: 13px;
+            .precioCarrito{
+                grid-area: parrafo1;
+            }
+            .anioCarrito{
+                grid-area: parrafo2;
+            }
+            .generoCarrito{
+                grid-area: parrafo3;
+            }
+            .empresaCarrito{
+                grid-area: parrafo4;
+            }
+            cantidadCarrito{
+                grid-area: parrafo5;
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
 const seccionJuegos = document.getElementById('juegos');
 const seccionCarrito = document.getElementById('juegosEnElCarrito');
 const opcionesDeCompra = document.getElementById('opcionesDeCompra');
-const form = document.getElementById('filtroForm');
+const form = document.getElementById('filtro-div');
 
 //calcula el porcentaje y dependiendo del caso lo suma o lo resta
 function calcularPorcentaje(valor,operacion,porcentaje){
@@ -51,11 +51,11 @@ function agregarALaSeccionCarrito(element){
         div.innerHTML = `
         <img class='imagenJuego' src=${juego.imagen}>
         <h2>${juego.nombre}</h2>
-        <p id = ${juego.precio}>$${juego.precio}</p>
-        <p>Año de lanzamiento: ${juego.anioDeLanzamiento}</p>
-        <p>Genero: ${juego.genero}</p>
-        <p>Empresa: ${juego.empresa}</p>
-        <p>Cantidad: ${juego.cantidadEnCarrito}</p>
+        <p class = 'precioCarrito' id = ${juego.precio}>$${juego.precio}</p>
+        <p class = 'anioCarrito'>Año de lanzamiento: ${juego.anioDeLanzamiento}</p>
+        <p class = 'generoCarrito'>Genero: ${juego.genero}</p>
+        <p class = 'empresaCarrito'>Empresa: ${juego.empresa}</p>
+        <p class = 'cantidadCarrito'>Cantidad: ${juego.cantidadEnCarrito}</p>
         <button class="btn_comprar btn btn-primary">Comprar</button>
         <button class=" btn btn-danger">Eliminar del carrito</button>
         `;
@@ -70,6 +70,7 @@ function agregarALaSeccionCarrito(element){
         element.children[8].onclick = () => eliminarJuego(element)
     });
     document.querySelector('#comprarTodo').onclick = () => comprarTodo();
+    document.querySelector('.navbar-toggler').click();
 }
 
 //Compra un elemento del carrito
@@ -85,6 +86,7 @@ function comprarJuego(element){
        element.id<=juego.id ? juego.setAttribute('id', juego.id-1) : false;
     }
         carrito == ''?opcionesDeCompra.innerHTML = '':false;
+        carrito == ''?document.querySelector('.btn-close').click():false;
 }
 
 //elimina un elemento del carrito
@@ -100,6 +102,7 @@ function eliminarJuego(element){
     }
         if(carrito == ''){
             opcionesDeCompra.innerHTML = '';
+            document.querySelector('.btn-close').click();
         }
 }
 
@@ -117,6 +120,7 @@ function comprarTodo(){
         }
     opcionesDeCompra.innerHTML = '';
     carrito = [];
+    document.querySelector('.btn-close').click();
 }
 
 //filtro por rango para valores numericos (año de lanzamiento, precio, etc.)
@@ -213,7 +217,7 @@ function volverAListaPorDefault(){
     });
 }
 
-fetch('/JSON/juegos.json')
+    fetch('/JSON/juegos.json')
     .then((res)=>res.json())
     .then((data)=>{
         data.forEach((producto) => {
@@ -227,12 +231,14 @@ fetch('/JSON/juegos.json')
         
         document.querySelector('#aplicarFiltros').addEventListener('click',function(){
             event.preventDefault();
-            if(!isNaN(form.children[4].value)&&form.children[4]!=''&&!isNaN(form.children[5].value)&&form.children[5]!=''){
+            if(!isNaN(form.children[4].value)&&!isNaN(form.children[5].value)&&(form.children[5].value!=''||form.children[4].value!='')){
                 filtrarPorRango('precio',form.children[4].value,form.children[5].value);
             }
-            if(!isNaN(form.children[1].value)&&form.children[1]!=''&&!isNaN(form.children[2].value)&&form.children[2]!=''){
+
+            if(!isNaN(form.children[1].value)&&!isNaN(form.children[2].value)&&(form.children[1].value!=''||form.children[2].value!='')){
                 filtrarPorRango('anioDeLanzamiento',form.children[1].value,form.children[2].value);
             }
+             
             if(form.children[9].value != ''){
                 filtrarPorNombre('genero',form.children[9].value);
             }
@@ -240,10 +246,14 @@ fetch('/JSON/juegos.json')
                 filtrarPorNombre('empresa',form.children[7].value);
             }
 
-            const quitarFiltros = document.createElement('button');
-            let forma = document.querySelector('#filtroForm');
+
+            let quitarFiltros;
+
+            if(form.children[11] == undefined){
+            quitarFiltros = document.createElement('button');
             quitarFiltros.innerHTML='Quitar filtros';
-            forma.appendChild(quitarFiltros);
+            form.appendChild(quitarFiltros);
+            }
 
             quitarFiltros.addEventListener('click',function(){
                 volverAListaPorDefault();
@@ -251,3 +261,4 @@ fetch('/JSON/juegos.json')
 
         });
     })
+

@@ -3,14 +3,17 @@
   color: white;
   display: flex;
   padding: 1%;
-  flex-wrap: wrap; }
-  #filtroForm .text {
-    width: 4%;
-    margin: 0% 0.3%; }
-  #filtroForm select {
-    margin-left: 1%; }
-  #filtroForm label {
-    margin-left: 1%; }
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  #filtroForm #filtro-div {
+    width: 96%; }
+    #filtroForm #filtro-div .text {
+      width: 4%;
+      margin: 0% 0.3%; }
+    #filtroForm #filtro-div select {
+      margin-left: 1%; }
+    #filtroForm #filtro-div label {
+      margin-left: 1%; }
 
 #juegos {
   display: flex;
@@ -26,8 +29,29 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
-  #juegosEnElCarrito .juegoEnCarrito {
-    width: 400px;
-    margin: 1% 1%; }
-    #juegosEnElCarrito .juegoEnCarrito .imagenJuego {
-      width: 100%; }
+  #juegosEnElCarrito .card {
+    display: grid;
+    width: 100%;
+    margin: 1% 1%;
+    grid: "imagen titulo" "imagen parrafo1" "imagen parrafo2" "imagen parrafo3" "imagen parrafo4" "imagen parrafo5"; }
+    #juegosEnElCarrito .card .imagenJuego {
+      grid-area: imagen;
+      width: 100%;
+      height: 100%; }
+    #juegosEnElCarrito .card h2 {
+      grid-area: titulo;
+      width: 100%;
+      font-size: 30px; }
+    #juegosEnElCarrito .card p {
+      width: 100%;
+      font-size: 13px; }
+      #juegosEnElCarrito .card p .precioCarrito {
+        grid-area: parrafo1; }
+      #juegosEnElCarrito .card p .anioCarrito {
+        grid-area: parrafo2; }
+      #juegosEnElCarrito .card p .generoCarrito {
+        grid-area: parrafo3; }
+      #juegosEnElCarrito .card p .empresaCarrito {
+        grid-area: parrafo4; }
+      #juegosEnElCarrito .card p cantidadCarrito {
+        grid-area: parrafo5; }
